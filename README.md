@@ -1,2 +1,2 @@
 # bill-spreader
-This app can spread your money evenly 
+This app can split your money evenly 
