@@ -124,4 +124,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
         resultDiv.innerHTML = message;
     });
-});
+}); 
+// final version !!
