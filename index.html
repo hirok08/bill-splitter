@@ -9,13 +9,15 @@
 </head>
 
 <body>
-    <form>
-        <div class="container">
-            <h1 class="bill">Bill Splitter</h1>
-            <input class="form" type="number" id="number" min="2" placeholder="Enter number of people" required>
-            <button type="submit" class="btn1">Press</button>
-        </div>
-    </form>
+    <div class="container">
+        <h1 class="bill">Bill Splitter</h1>
+        <input class="form" type="number" id="numPeople" min="2" placeholder="Enter number of people" required>
+        <button id="createInputs" class="btn1">Press</button>
+
+        <form id="billForm"></form>
+        <button id="calculate" class="btn1" style="display:none;">Calculate</button>
+        <div id="result"></div>
+    </div>
 
     <script src="main.js"></script>
 </body>

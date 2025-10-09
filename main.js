@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let amounts = [];
         let hasError = false;
 
-        // Validate all inputs first
         for (let input of inputs) {
             const val = parseFloat(input.value);
             if (isNaN(val) || val < 0) {
@@ -56,20 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const perPerson = total / amounts.length;
 
-        // Create array to track who owes/receives what
         const balances = amounts.map((amt, i) => ({
             person: i + 1,
             paid: amt,
-            balance: amt - perPerson, // positive = overpaid, negative = underpaid
+            balance: amt - perPerson,
             owes: [],
             receives: []
         }));
 
-        // Sort people by balance (those who underpaid first, then overpaid)
         const debtors = balances.filter(p => p.balance < 0).sort((a, b) => a.balance - b.balance);
         const creditors = balances.filter(p => p.balance > 0).sort((a, b) => b.balance - a.balance);
 
-        // Calculate who pays whom
         let debtorIndex = 0;
         let creditorIndex = 0;
 
@@ -79,33 +75,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const debt = Math.min(-debtor.balance, creditor.balance);
             
-            // Record the transaction
-            debtor.owes.push({
-                to: creditor.person,
-                amount: debt
-            });
+            debtor.owes.push({ to: creditor.person, amount: debt });
+            creditor.receives.push({ from: debtor.person, amount: debt });
             
-            creditor.receives.push({
-                from: debtor.person,
-                amount: debt
-            });
-            
-            // Update balances
             debtor.balance += debt;
             creditor.balance -= debt;
             
-            // Move to next debtor/creditor if current one is settled
             if (Math.abs(debtor.balance) < 0.01) debtorIndex++;
             if (creditor.balance < 0.01) creditorIndex++;
         }
 
-        // Build result message
         let message = `<h2>Results:</h2>`;
         message += `<p><strong>Total: ₹${total.toFixed(2)}</strong></p>`;
         message += `<p><strong>Each person should pay: ₹${perPerson.toFixed(2)}</strong></p>`;
         message += `<h3>Settlement:</h3>`;
         
-        // Show who needs to pay whom
         let hasTransactions = false;
         balances.forEach(person => {
             if (person.owes.length > 0) {
@@ -124,5 +108,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
         resultDiv.innerHTML = message;
     });
-}); 
-// changed!!
+});

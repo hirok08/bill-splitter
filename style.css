@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -14,22 +13,19 @@ body {
     background-image: url(images/backgroundimg.png);
     background-size: cover;
     background-position: center;
-
-
 }
 
 .container {
     display: flex;
     margin: 20px;
     flex-direction: column;
-    gap: 47px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     width: 319px;
-    height: 375px;
+    padding: 20px;
     border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 7px;
-    /* color: white; */
     backdrop-filter: blur(15px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }
@@ -37,24 +33,21 @@ body {
 .bill {
     font-family: "Poppins", sans-serif;
     font-weight: bolder;
-    font-style: normal;
     color: #ffffff;
 }
 
 .form {
     width: 250px;
-    height: 25px;
+    height: 40px;
     border-radius: 7px;
-    border-color: 2px solid;
     background: transparent;
-    border: none;
-    outline: none;
     border: 2px solid rgba(255, 255, 255, .2);
     color: #fff;
     font-size: larger;
     text-align: center;
     font-weight: bolder;
-    padding: 9px 8px 10px 5px;
+    padding: 5px;
+    outline: none;
 }
 
 .form::placeholder {
@@ -65,13 +58,12 @@ body {
 }
 
 .btn1 {
-    width: 90px;
+    width: 120px;
     height: 43px;
     font-family: monospace;
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
     border-radius: 7px;
-    border: 2px solid rgba(255, 255, 255, .2);
     color: #EEEEEE;
     background: #222831;
     border: none;
@@ -85,12 +77,14 @@ body {
     transform: scale(0.98);
 }
 
-nput[type=number]::-webkit-outer-spin-button,
+/* Remove number input arrows */
+input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* input[type=number] {
-    -moz-appearance: textfield;
-} */
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
