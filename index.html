@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill-Splitter</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="bill">Bill Splitter</h1>
-        <input class="form" type="text" name="number" required placeholder="Enter number of people">
-        <button class="btn1">Press</button>
-    </div>
-    
+    <form>
+        <div class="container">
+            <h1 class="bill">Bill Splitter</h1>
+            <input class="form" type="number" id="number" min="2" placeholder="Enter number of people" required>
+            <button type="submit" class="btn1">Press</button>
+        </div>
+    </form>
+
     <script src="main.js"></script>
 </body>
+
 </html>
